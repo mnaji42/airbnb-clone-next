@@ -1,0 +1,7 @@
+.container {
+  /* Your styles here */
+}
+
+.body {
+  @apply flex flex-col gap-4;
+}

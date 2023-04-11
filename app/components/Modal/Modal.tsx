@@ -9,7 +9,7 @@ import React, {
 } from "react"
 
 import { IoMdClose } from "react-icons/io"
-import { Button } from ".."
+import { ClickOutside, Button } from "@components/index"
 
 import cn from "classnames"
 import s from "./Modal.module.css"
@@ -70,34 +70,36 @@ const Modal: FC<ModalProps> = ({
     <>
       <div className={s.backdrop}>
         <div className={s.container}>
-          <div className={cn(s.content, { [s.active]: showModal })}>
-            <div className={s.modal}>
-              <div className={s.header}>
-                <button className={s.closeButton} onClick={handleClose}>
-                  <IoMdClose size={18} />
-                </button>
-                <div className={s.title}>{title}</div>
-              </div>
-              <div className={s.body}>{body}</div>
-              <div className={s.actionContainer}>
-                <div className={s.action}>
-                  {secondaryAction && secondaryActionLabel ? (
+          <ClickOutside active={isOpen} onClick={handleClose}>
+            <div className={cn(s.content, { [s.active]: showModal })}>
+              <div className={s.modal}>
+                <div className={s.header}>
+                  <button className={s.closeButton} onClick={handleClose}>
+                    <IoMdClose size={18} />
+                  </button>
+                  <div className={s.title}>{title}</div>
+                </div>
+                <div className={s.body}>{body}</div>
+                <div className={s.actionContainer}>
+                  <div className={s.action}>
+                    {secondaryAction && secondaryActionLabel ? (
+                      <Button
+                        disabled={disabled}
+                        label={secondaryActionLabel}
+                        onClick={handleSecondaryAction}
+                        outline
+                      />
+                    ) : null}
                     <Button
                       disabled={disabled}
-                      label={secondaryActionLabel}
-                      onClick={handleSecondaryAction}
-                      outline
+                      label={actionLabel}
+                      onClick={handleSubmit}
                     />
-                  ) : null}
-                  <Button
-                    disabled={disabled}
-                    label={actionLabel}
-                    onClick={handleSubmit}
-                  />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ClickOutside>
         </div>
       </div>
     </>

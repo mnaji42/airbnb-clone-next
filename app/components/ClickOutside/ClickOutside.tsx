@@ -1,5 +1,7 @@
-import React, { useRef, useEffect, MouseEvent } from 'react'
-import hasParent from './has-parent'
+"use client"
+
+import React, { useRef, useEffect, MouseEvent } from "react"
+import hasParent from "./has-parent"
 
 interface ClickOutsideProps {
   active: boolean
@@ -16,7 +18,7 @@ const ClickOutside = ({
 
   const handleClick = (event: any) => {
     if (!hasParent(event.target, innerRef?.current)) {
-      if (typeof onClick === 'function') {
+      if (typeof onClick === "function") {
         onClick(event)
       }
     }
@@ -24,14 +26,14 @@ const ClickOutside = ({
 
   useEffect(() => {
     if (active) {
-      document.addEventListener('mousedown', handleClick)
-      document.addEventListener('touchstart', handleClick)
+      document.addEventListener("mousedown", handleClick)
+      document.addEventListener("touchstart", handleClick)
     }
 
     return () => {
       if (active) {
-        document.removeEventListener('mousedown', handleClick)
-        document.removeEventListener('touchstart', handleClick)
+        document.removeEventListener("mousedown", handleClick)
+        document.removeEventListener("touchstart", handleClick)
       }
     }
   })
