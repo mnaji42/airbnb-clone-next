@@ -1,0 +1,19 @@
+.button {
+  @apply relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg transition w-full bg-rose-500 border-rose-500 text-white text-sm py-3 font-semibold border-2;
+}
+
+.button:hover {
+  @apply opacity-80;
+}
+
+.button.outline {
+  @apply bg-white border-black text-black;
+}
+
+.button.small {
+  @apply text-sm p-1 font-light border;
+}
+
+.icon {
+  @apply absolute left-4 top-3;
+}

@@ -1,0 +1,47 @@
+.backdrop {
+  @apply flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-neutral-800/70;
+}
+
+.backdrop:focus {
+  @apply outline-none;
+}
+
+.container {
+  @apply relative w-full md:w-4/6 lg:w-3/6 xl:w-2/5 my-6 mx-auto h-full lg:h-auto md:h-auto;
+}
+
+.content {
+  @apply duration-300 h-full translate-y-full opacity-0;
+}
+
+.content.active {
+  @apply translate-y-0 opacity-100;
+}
+
+.modal {
+  @apply h-full lg:h-auto md:h-auto border-0  rounded-lg  shadow-lg  relative  flex  flex-col  w-full  bg-white  outline-none  focus:outline-none;
+}
+
+.header {
+  @apply flex items-center p-6 rounded-t justify-center relative border-b;
+}
+
+.closeButton {
+  @apply p-1 border-0 hover:opacity-70 transition absolute left-9;
+}
+
+.title {
+  @apply text-lg font-semibold;
+}
+
+.body {
+  @apply relative p-6 flex-auto;
+}
+
+.actionContainer {
+  @apply flex flex-col gap-2 p-6;
+}
+
+.action {
+  @apply flex flex-row items-center gap-4 w-full;
+}
