@@ -1,0 +1,31 @@
+.container {
+  @apply border w-full md:w-auto py-2 rounded-full shadow-sm transition cursor-pointer;
+}
+
+.container:hover {
+  @apply shadow-md;
+}
+
+.subContainer {
+  @apply flex flex-row items-center justify-between;
+}
+
+.location {
+  @apply text-sm font-semibold px-6;
+}
+
+.time {
+  @apply hidden sm:block text-sm font-semibold px-6 border-x flex-1 text-center;
+}
+
+.guestContainer {
+  @apply text-sm pl-6 pr-2 text-gray-600 flex flex-row items-center gap-3;
+}
+
+.guest {
+  @apply hidden sm:block;
+}
+
+.search {
+  @apply p-2 bg-rose-500 rounded-full text-white;
+}

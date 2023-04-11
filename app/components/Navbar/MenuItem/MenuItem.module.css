@@ -1,0 +1,7 @@
+.container {
+  @apply px-4 py-3 transition font-semibold;
+}
+
+.container:hover {
+  @apply bg-neutral-100;
+}

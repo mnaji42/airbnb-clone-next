@@ -1,0 +1,35 @@
+.container {
+  @apply relative;
+}
+
+.subContainer {
+  @apply flex flex-row items-center gap-3;
+}
+
+.hosting {
+  @apply hidden md:block text-sm font-semibold py-3 px-4 rounded-full transition cursor-pointer;
+}
+
+.hosting:hover {
+  @apply bg-neutral-100;
+}
+
+.userContainer {
+  @apply p-4 md:py-1 md:px-2 border border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer transition;
+}
+
+.userContainer:hover {
+  @apply shadow-md;
+}
+
+.avatar {
+  @apply hidden md:block;
+}
+
+.menuContainer {
+  @apply absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm;
+}
+
+.menu {
+  @apply flex flex-col cursor-pointer;
+}
