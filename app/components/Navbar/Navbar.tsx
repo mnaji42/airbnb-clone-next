@@ -16,12 +16,10 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
-    <div
-      className={cn(s.container, className, "fixed w-full bg-white shadow-sm")}
-    >
-      <div className="py-4 border-b">
+    <div className={cn(s.container, className)}>
+      <div className={s.subContainer}>
         <Container>
-          <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+          <div className={s.navBar}>
             <Logo />
             <Search />
             <UserMenu />

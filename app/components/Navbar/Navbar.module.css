@@ -1,3 +1,11 @@
 .container {
-  /* Your styles here */
+  @apply fixed w-full bg-white shadow-sm;
+}
+
+.subContainer {
+  @apply py-4 border-b;
+}
+
+.navBar {
+  @apply flex flex-row items-center justify-between gap-3 md:gap-0;
 }
