@@ -5,6 +5,7 @@ import React, { FC, useCallback, useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
 import { Avatar } from "@components/index"
 import MenuItem from "../MenuItem"
+import ClickOutside from "@components/ClickOutside"
 
 import cn from "classnames"
 import s from "./UserMenu.module.css"
@@ -33,14 +34,16 @@ const UserMenu: FC<UserMenuProps> = ({ className }) => {
         </div>
       </div>
       {isOpen ? (
-        <div className={s.menuContainer}>
-          <div className={s.menu}>
-            <>
-              <MenuItem onClick={() => {}} label="Login" />
-              <MenuItem onClick={() => {}} label="Sign up" />
-            </>
+        <ClickOutside active={isOpen} onClick={() => setIsOpen(false)}>
+          <div className={s.menuContainer}>
+            <div className={s.menu}>
+              <>
+                <MenuItem onClick={() => {}} label="Login" />
+                <MenuItem onClick={() => {}} label="Sign up" />
+              </>
+            </div>
           </div>
-        </div>
+        </ClickOutside>
       ) : null}
     </div>
   )
