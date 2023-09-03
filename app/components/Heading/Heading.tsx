@@ -14,8 +14,9 @@ interface HeadingProps {
 const Heading: FC<HeadingProps> = ({ className, title, subTitle, center }) => {
   return (
     <div className={cn(s.container, { [s.center]: center }, className)}>
-      <div className={s.title}>{title}</div>
-      <div className={s.subTitle}>{subTitle}</div>
+      <h2 className={s.title}>{title}</h2>
+      {/* TODO VERIFIER SI LES H2 H3 SONT DES BONNES PRATIQUES DANS DES MODALS */}
+      <h3 className={s.subTitle}>{subTitle}</h3>
     </div>
   )
 }
