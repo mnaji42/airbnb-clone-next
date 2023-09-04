@@ -7,6 +7,7 @@ import { Avatar } from "@components/index"
 import MenuItem from "../MenuItem"
 import ClickOutside from "@components/ClickOutside"
 import useRegisterModal from "@hooks/useRegisterModal"
+import useLoginModal from "@hooks/useLoginModal"
 
 import cn from "classnames"
 import s from "./UserMenu.module.css"
@@ -17,6 +18,7 @@ interface UserMenuProps {
 
 const UserMenu: FC<UserMenuProps> = ({ className }) => {
   const registerModal = useRegisterModal()
+  const loginModal = useLoginModal()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleOpen = useCallback(() => {
@@ -40,7 +42,7 @@ const UserMenu: FC<UserMenuProps> = ({ className }) => {
           <div className={s.menuContainer}>
             <div className={s.menu}>
               <>
-                <MenuItem onClick={() => {}} label="Login" />
+                <MenuItem onClick={loginModal.onOpen} label="Login" />
                 <MenuItem onClick={registerModal.onOpen} label="Sign up" />
               </>
             </div>

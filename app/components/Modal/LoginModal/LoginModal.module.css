@@ -1,0 +1,19 @@
+.container {
+  /* Your styles here */
+}
+
+.body {
+  @apply flex flex-col gap-4;
+}
+
+.footer {
+  @apply flex flex-col gap-4 mt-3;
+}
+
+.loginContainer {
+  @apply flex flex-row justify-center text-neutral-500 text-center mt-4 font-light gap-2;
+}
+
+.login {
+  @apply text-neutral-800 cursor-pointer hover:underline;
+}
