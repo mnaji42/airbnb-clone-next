@@ -13,6 +13,8 @@ interface LogoProps {
 }
 
 const Logo: FC<LogoProps> = ({ className }) => {
+  const router = useRouter()
+
   return (
     <Image
       alt="logo"
@@ -20,6 +22,7 @@ const Logo: FC<LogoProps> = ({ className }) => {
       height="100"
       width="100"
       src="/images/logo.png"
+      onClick={() => router.push("/")}
     />
   )
 }

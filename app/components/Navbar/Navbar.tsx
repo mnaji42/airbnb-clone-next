@@ -7,6 +7,7 @@ import { Container } from "@components/index"
 import Logo from "./Logo"
 import Search from "./Search"
 import UserMenu from "./UserMenu"
+import Categories from "./Categories"
 
 import cn from "classnames"
 import s from "./Navbar.module.css"
@@ -28,6 +29,7 @@ const Navbar: FC<NavbarProps> = ({ className, currentUser }) => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   )
 }

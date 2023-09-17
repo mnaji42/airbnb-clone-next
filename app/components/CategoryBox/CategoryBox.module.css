@@ -1,0 +1,11 @@
+.container {
+  @apply flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer border-transparent text-neutral-500;
+}
+
+.container.selected {
+  @apply border-b-neutral-800 text-neutral-800;
+}
+
+.label {
+  @apply font-medium text-sm;
+}
