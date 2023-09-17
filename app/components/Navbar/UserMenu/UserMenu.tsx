@@ -37,7 +37,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser, className }) => {
         <div onClick={toggleOpen} className={s.userContainer}>
           <AiOutlineMenu />
           <div className={s.avatar}>
-            <Avatar />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>

@@ -81,13 +81,13 @@ const LoginModal: FC<LoginModalProps> = ({ className }) => {
         outline
         label="Continue with google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <p className={s.loginContainer}>
         Already have an account?

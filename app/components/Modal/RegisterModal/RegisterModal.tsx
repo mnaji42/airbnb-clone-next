@@ -4,13 +4,14 @@ import React, { FC, useState } from "react"
 import axios from "axios"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import useRegisterModal from "@hooks/useRegisterModal"
+import { signIn } from "next-auth/react"
 
 import { Modal, Heading, Input, Button } from "@components/index"
 import { AiFillGithub } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
+import { toast } from "react-hot-toast"
 
 import s from "./RegisterModal.module.css"
-import { toast } from "react-hot-toast"
 
 interface RegisterModalProps {
   className?: string
@@ -85,13 +86,13 @@ const RegisterModal: FC<RegisterModalProps> = ({ className }) => {
         outline
         label="Continue with google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <p className={s.loginContainer}>
         Already have an account?
