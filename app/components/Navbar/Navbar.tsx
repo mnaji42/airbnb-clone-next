@@ -2,6 +2,7 @@
 
 import React, { FC } from "react"
 
+import { SafeUser } from "app/types"
 import { Container } from "@components/index"
 import Logo from "./Logo"
 import Search from "./Search"
@@ -11,10 +12,11 @@ import cn from "classnames"
 import s from "./Navbar.module.css"
 
 interface NavbarProps {
+  currentUser: SafeUser | null
   className?: string
 }
 
-const Navbar: FC<NavbarProps> = ({ className }) => {
+const Navbar: FC<NavbarProps> = ({ className, currentUser }) => {
   return (
     <div className={cn(s.container, className)}>
       <div className={s.subContainer}>
@@ -22,7 +24,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
           <div className={s.navBar}>
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
