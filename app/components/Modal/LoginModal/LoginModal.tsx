@@ -1,12 +1,12 @@
 "use client"
 
-import React, { FC, useState } from "react"
+import React, { FC, useCallback, useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import { signIn } from "next-auth/react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import useLoginModal from "@hooks/useLoginModal"
-import useRegisterModal from "@hooks/useLoginModal"
+import useRegisterModal from "@hooks/useRegisterModal"
 
 import { Modal, Heading, Input, Button } from "@components/index"
 import { AiFillGithub } from "react-icons/ai"
@@ -41,7 +41,7 @@ const LoginModal: FC<LoginModalProps> = ({ className }) => {
 
     signIn("credentials", { ...data, redirect: false }).then((callback) => {
       if (callback?.ok) {
-        toast.success("Logges in")
+        toast.success("Logged in")
         router.refresh()
         loginModal.onClose()
       }
@@ -74,6 +74,11 @@ const LoginModal: FC<LoginModalProps> = ({ className }) => {
     </div>
   )
 
+  const toggle = useCallback(() => {
+    loginModal.onClose()
+    registerModal.onOpen()
+  }, [loginModal, registerModal])
+
   const footerContent = (
     <div className={s.footer}>
       <hr />
@@ -90,9 +95,9 @@ const LoginModal: FC<LoginModalProps> = ({ className }) => {
         onClick={() => signIn("github")}
       />
       <p className={s.loginContainer}>
-        Already have an account?
-        <span className={s.login} onClick={loginModal.onClose}>
-          Log in
+        First time using airbnb?
+        <span className={s.login} onClick={toggle}>
+          Create an account
         </span>
       </p>
     </div>

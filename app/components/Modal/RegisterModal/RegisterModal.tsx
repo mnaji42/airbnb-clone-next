@@ -1,8 +1,9 @@
 "use client"
 
-import React, { FC, useState } from "react"
+import React, { FC, useCallback, useState } from "react"
 import axios from "axios"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
+import useLoginModal from "@hooks/useLoginModal"
 import useRegisterModal from "@hooks/useRegisterModal"
 import { signIn } from "next-auth/react"
 
@@ -19,6 +20,7 @@ interface RegisterModalProps {
 
 const RegisterModal: FC<RegisterModalProps> = ({ className }) => {
   const registerModal = useRegisterModal()
+  const loginModal = useLoginModal()
   const [loading, setLoading] = useState<boolean>(false)
 
   const {
@@ -79,6 +81,11 @@ const RegisterModal: FC<RegisterModalProps> = ({ className }) => {
     </div>
   )
 
+  const toggle = useCallback(() => {
+    registerModal.onClose()
+    loginModal.onOpen()
+  }, [registerModal, loginModal])
+
   const footerContent = (
     <div className={s.footer}>
       <hr />
@@ -96,7 +103,7 @@ const RegisterModal: FC<RegisterModalProps> = ({ className }) => {
       />
       <p className={s.loginContainer}>
         Already have an account?
-        <span className={s.login} onClick={registerModal.onClose}>
+        <span className={s.login} onClick={toggle}>
           Log in
         </span>
       </p>
