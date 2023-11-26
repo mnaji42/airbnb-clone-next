@@ -11,6 +11,7 @@ import MenuItem from "../MenuItem"
 import ClickOutside from "@components/ClickOutside"
 import useRegisterModal from "@hooks/useRegisterModal"
 import useLoginModal from "@hooks/useLoginModal"
+import useRentModal from "@hooks/useRentModal"
 
 import cn from "classnames"
 import s from "./UserMenu.module.css"
@@ -23,15 +24,23 @@ interface UserMenuProps {
 const UserMenu: FC<UserMenuProps> = ({ currentUser, className }) => {
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal()
+  const rentModal = useRentModal()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleOpen = useCallback(() => {
     setIsOpen((v) => !v)
   }, [])
+
+  const onRent = useCallback(() => {
+    if (!currentUser) return loginModal.onOpen()
+
+    rentModal.onOpen()
+  }, [currentUser, loginModal, rentModal])
+
   return (
     <div className={cn(s.container, className)}>
       <div className={s.subContainer}>
-        <div onClick={() => {}} className={s.hosting}>
+        <div onClick={onRent} className={s.hosting}>
           Airbnb your home
         </div>
         <div onClick={toggleOpen} className={s.userContainer}>
@@ -51,7 +60,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser, className }) => {
                   <MenuItem onClick={() => {}} label="My favorites" />
                   <MenuItem onClick={() => {}} label="My reservations" />
                   <MenuItem onClick={() => {}} label="My properties" />
-                  <MenuItem onClick={() => {}} label="Airbnb my home" />
+                  <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
                   <hr />
                   <MenuItem onClick={signOut} label="Logout" />
                 </>
