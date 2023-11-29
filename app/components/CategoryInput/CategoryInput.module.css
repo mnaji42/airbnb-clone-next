@@ -1,0 +1,7 @@
+.container {
+  @apply rounded-xl border-2 p-4 flex flex-col items-center gap-3 border-neutral-200 hover:border-black transition cursor-pointer;
+}
+
+.container.selected {
+  @apply border-black;
+}

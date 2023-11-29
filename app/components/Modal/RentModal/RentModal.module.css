@@ -1,0 +1,15 @@
+.categoryContent {
+  @apply flex flex-col gap-8;
+}
+
+.categoryContent .subContainer {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto;
+}
+
+.categoryContent .item {
+  @apply col-span-1;
+}
+
+.locationContent {
+  @apply flex flex-col gap-8;
+}
